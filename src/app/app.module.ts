@@ -5,21 +5,29 @@ import { TransferHttpCacheModule } from "@nguniversal/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { DropdownModule } from "primeng/dropdown";
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
+import { Auth0LockService } from './services/auth0-lock.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './components/login/login.component';
+import { CallbackComponent } from './components/callback/callback.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent,
+    NavbarComponent, LoginComponent, CallbackComponent],
   imports: [
     CommonModule,
     NgtUniversalModule,
     TransferHttpCacheModule,
     HttpClientModule,
     AppRoutingModule,
-    DropdownModule
+    DropdownModule,
+    FontAwesomeModule,
+    FormsModule
   ],
-  providers: []
+  providers: [Auth0LockService]
 })
-export class AppModule {}
+export class AppModule { }

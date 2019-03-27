@@ -2,18 +2,10 @@
   <div class="container">
     <p><b>Select a region</b></p>
     <div class="input-group">
-      <!-- <select
-        [(ngModel)]="regionService.selectedRegionId"
-        name="selectedRegionId"
-        class="form-control"
-      >
+      <select [(ngModel)]="spotService.selectedRegionId" name="selectedRegionId" class="form-control">
         <option disabled>--Select--</option>
-        <option
-          *ngFor="let region of regions"
-          [value]="region.surflineRegionId"
-          >{{ region.regionName }}</option
-        >
-      </select> -->
+        <option *ngFor="let region of regions" [value]="region.surflineRegionId">{{ region.regionName }}</option>
+      </select>
       <div class="input-group-append">
         <button class="btn btn-primary" type="submit" [routerLink]="['/spots']">
           <i class="material-icons">search</i>

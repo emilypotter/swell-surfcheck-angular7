@@ -1,0 +1,16 @@
+#backdrop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #000000ba;
+    color: white;
+    span {
+        position: absolute;
+        top: calc(50% - 0.6em);
+        font-size: 3em;
+        left: calc(50% - 0.6em);
+    }
+}

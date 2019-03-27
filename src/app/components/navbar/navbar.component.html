@@ -1,32 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000">
-  <a class="navbar-brand abs" href="#">
-    <img src="https://cdn4.iconfinder.com/data/icons/marine-3/64/C_Sea_Wave-512.png" width="30" height="30" alt="">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-collapse">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="navbar-collapse collapse" id="collapsingNavbar">
-      <ul class="navbar-nav">
-          <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link">Spots</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link">About</a>
-          </li>
-      </ul>
-      <ul *ngIf="!auth0LockService.isAuthenticated()" class="navbar-nav ml-auto">
-          <li class="nav-item">
-              <a class="nav-link" (click)="auth0LockService.login()">Login</a>
-          </li>
-      </ul>
-      <ul *ngIf="auth0LockService.isAuthenticated()" class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" (click)="auth0LockService.logout()">Log Out</a>
-        </li>
-    </ul>
-  </div>
+    <a class="navbar-brand abs" href="#">
+        <img src="https://cdn4.iconfinder.com/data/icons/marine-3/64/C_Sea_Wave-512.png" width="30" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="collapsingNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Spots</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">About</a>
+            </li>
+        </ul>
+        <ul *ngIf="!auth0LockService.isAuthenticated()" class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" (click)="auth0LockService.login()">Login</a>
+            </li>
+        </ul>
+        <ul *ngIf="auth0LockService.isAuthenticated()" class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" (click)="auth0LockService.logout()">Log Out</a>
+            </li>
+        </ul>
+    </div>
 </nav>
-
