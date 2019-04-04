@@ -1,0 +1,16 @@
+<div class="container" data-infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="throttle" (scrolled)="onScroll()">
+  <div class="row">
+    <div class="col-md-12" *ngFor="let spot of array">
+      <div class="row property-card" (click)="selectSpot()">
+        <div class="col-lg-4 col-sm-12 property-image-container">
+          <img src="https://ssl.quiksilver.com/static/QS/default/category-assets/marketing-landing/landing/img/surf/tiles/surf_featured_1.jpg" alt="surf pic">
+        </div>
+          <div class="col-md-4 col-sm-12">
+            <div class="property-card-details">
+                <h5>Saunton</h5>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

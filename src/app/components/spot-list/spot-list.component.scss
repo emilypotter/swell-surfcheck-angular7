@@ -1,0 +1,58 @@
+.property-card {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-left: 7px solid;
+    border-radius: 5px;
+    margin: 0.5em 0;
+    overflow: hidden;
+    width: 100%;
+    z-index: 1;
+  
+    &:not(.not-verified) {
+      cursor: pointer;
+    }
+  
+    &:hover:not(.not-verified) {
+      cursor: pointer;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+    }
+  }
+  
+  // .property-card-details {
+  //   margin: 18px 16px 0 16px;
+  // }
+  
+  .property-card-tranaction-type {
+    text-align: right;
+    text-transform: uppercase;
+  }
+  
+  .property-image-container {
+    padding: 0;
+  }
+  
+  p {
+    margin-bottom: 0em;
+  }
+  
+  // h5 {
+  //   margin: 0em;
+  // }
+
+  img {
+    height: 200px;
+    width: 300px;
+  }
+
+  .active-pink-2 input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #000000;
+    box-shadow: 0 1px 0 0 #000000;
+    }
+
+  .form-control {
+    margin-left: 8px;
+  }
+
+.search {
+  margin-top: 5px;
+  }
