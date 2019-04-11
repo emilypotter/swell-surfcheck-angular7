@@ -1,0 +1,18 @@
+<div class="container" data-infinite-scroll [infiniteScrollDistance]="scrollDistance"
+  [infiniteScrollThrottle]="throttle" (scrolled)="onScroll()">
+  <div class="row">
+    <div class="col-md-12" *ngFor="let spot of array">
+      <div class="row property-card" (click)="selectSpot(spot)">
+        <div class="col-lg-4 col-sm-12 property-image-container">
+          <img src="{{spot.imageUrl}}" alt="surf pic">
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="property-card-details">
+            <h5>{{spot.spotName}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ngx-loading [show]="loading"></ngx-loading>
+</div>

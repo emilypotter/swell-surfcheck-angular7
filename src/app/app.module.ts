@@ -14,10 +14,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { FormsModule } from '@angular/forms';
+import { SpotListComponent } from './components/spot-list/spot-list.component';
+import { SpotService } from './services/spot.service';
+import { NgxLoadingModule } from 'ngx-loading';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
-    NavbarComponent, LoginComponent, CallbackComponent],
+    NavbarComponent, LoginComponent, CallbackComponent, SpotListComponent],
   imports: [
     CommonModule,
     NgtUniversalModule,
@@ -26,8 +30,10 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     DropdownModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    NgxLoadingModule.forRoot({}),
+    InfiniteScrollModule
   ],
-  providers: [Auth0LockService]
+  providers: [Auth0LockService, SpotService]
 })
 export class AppModule { }
