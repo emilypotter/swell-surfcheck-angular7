@@ -31,7 +31,10 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/weathericons/css/weather-icons.min.css",
               "node_modules/weathericons/css/weather-icons-wind.min.css",
-              "node_modules/videogular2/fonts/videogular.css"
+              "node_modules/videogular2/fonts/videogular.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [
               "node_modules/hls.js/dist/hls.min.js"

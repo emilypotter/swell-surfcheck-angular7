@@ -28,6 +28,7 @@ import { VgOverlayPlayModule } from 'videogular2/overlay-play';
 import { VgBufferingModule } from 'videogular2/buffering';
 import { VgStreamingModule } from 'videogular2/streaming';
 import { CarouselModule } from 'primeng/carousel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
@@ -48,7 +49,10 @@ import { CarouselModule } from 'primeng/carousel';
     VgOverlayPlayModule,
     VgBufferingModule,
     VgStreamingModule,
-    CarouselModule
+    CarouselModule,
+    BrowserModule,
+    BrowserAnimationsModule
+
   ],
   providers: [Auth0LockService, SpotService, WeatherService]
 })
