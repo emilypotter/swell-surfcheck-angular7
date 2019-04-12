@@ -33,7 +33,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [AppComponent, HomeComponent,
     NavbarComponent, LoginComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent],
-  imports: [
+  imports:[
+ CommonModule,
+NgtUniversalModule,
+ 
+ TransferHttpCacheModule,
+HttpClientModule,
+ 
     CommonModule,
     NgtUniversalModule,
     TransferHttpCacheModule,
@@ -50,10 +56,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     VgBufferingModule,
     VgStreamingModule,
     CarouselModule,
-    BrowserModule,
+    
     BrowserAnimationsModule
 
   ],
-  providers: [Auth0LockService, SpotService, WeatherService]
+  providers: [Auth0LockService, SpotService, WeatherService],
 })
 export class AppModule { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Forecast } from '../../model/forecastModel';
 import { WeatherService } from '../../services/weather.service';
 import { SpotService } from '../../services/spot.service';
-import { WeatherForecast, List } from 'src/app/model/weatherForecastModel';
+import { WeatherForecast, List } from '../../model/weatherForecastModel';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

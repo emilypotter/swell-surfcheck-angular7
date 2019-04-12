@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SpotService } from '../../services/spot.service';
-import { Region } from 'src/app/model/spotModel';
+import { Region } from '../../model/spotModel';
 import { RegionResponse } from '../../model/spotModel';
 
 @Component({

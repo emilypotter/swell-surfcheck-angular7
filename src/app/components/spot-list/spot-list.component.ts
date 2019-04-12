@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotService } from '../../services/spot.service';
 import { ActivatedRoute } from '@angular/router';
-import { Spot } from 'src/app/model/spotModel';
+import { Spot } from '../../model/spotModel';
 
 @Component({
   selector: 'app-spot-list',

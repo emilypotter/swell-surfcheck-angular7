@@ -1,3 +1,4 @@
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,7 +12,7 @@ const helper = new JwtHelperService();
 export class Auth0LockService {
   public lock: any;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private router: Router, private http: HttpClient) {
 
     const auth0Options = {
       auth: {
@@ -66,19 +67,18 @@ export class Auth0LockService {
   }
 
   public isAuthenticated(): boolean {
-    return !helper.isTokenExpired(localStorage.getItem('idToken'));
+    return !helper.isTokenExpired(this.localStorage.getItem('idToken'));
   }
 
   public login(): void {
     this.lock.show();
     const url = this.router.url;
-    localStorage.setItem('callbackUrl', url);
+    this.localStorage.setItem('callbackUrl', url);
   }
 
   public logout(): void {
-    // Remove tokens and expiry time from localStorage.removeItem('idToken');
-    localStorage.removeItem('idToken');
-    localStorage.removeItem('profile');
+    // Remove tokens and expiry time from this.localStorage.removeItem('idToken');
+    this.localStorage.removeItem('profile');
     // Go back to the home route
     this.router.navigate(['/']);
   }
