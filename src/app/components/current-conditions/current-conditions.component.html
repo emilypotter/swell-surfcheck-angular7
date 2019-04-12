@@ -1,0 +1,58 @@
+<div class="container-fluid" *ngIf="spot && conditions && currentWeather">
+    <h1>
+        {{spotService.selectedSpot.spotName}}
+    </h1>
+    <div class="row">
+        <div id="image" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <img src={{spot.camera.cam_image}} alt="image spot">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="conditions">
+            <ng-container [ngSwitch]=flat>
+                <span *ngSwitchDefault id="wave-height">
+                    {{conditions.am.minHeight}}-{{conditions.am.maxHeight}}ft
+                </span>
+                <span *ngSwitchCase="true" id="wave-height">
+                    FLAT
+                </span>
+            </ng-container>
+            <span *ngIf="!flat" id="human-relation">
+                {{conditions.am.humanRelation}}
+            </span>
+            <div id="weather">
+                <span>
+                    <!-- convert from m/s to mph -->
+                    {{currentWeather.wind.speed * 2.237 | number:'1.0-0'}} mph
+                    <i class="wi wi-wind from-{{currentWeather.wind.deg}}-deg"></i>
+                    <img style="margin-left:30px"
+                        src="http://openweathermap.org/img/w/{{currentWeather.weather[0].icon}}.png" alt="weather icon">
+                    {{currentWeather.weather[0].main}}&ensp;{{currentWeather.main.temp_max | number:'1.0-0'}}&deg;C
+                </span>
+            </div>
+            <p id="description">
+                {{conditions.observation}}
+            </p>
+            <table>
+                <tr>
+                    <td class="type">{{spot.predicted.tide[0][0].type}}</td>
+                    <td>{{spot.predicted.tide[0][0].clock_time}}</td>
+                    <td>{{spot.predicted.tide[0][0].height}} ft</td>
+                </tr>
+                <tr>
+                    <td class="type">{{spot.predicted.tide[0][1].type}}</td>
+                    <td>{{spot.predicted.tide[0][1].clock_time}}</td>
+                    <td>{{spot.predicted.tide[0][1].height}} ft</td>
+                </tr>
+                <tr>
+                    <td class="type">{{spot.predicted.tide[0][2].type}}</td>
+                    <td>{{spot.predicted.tide[0][2].clock_time}}</td>
+                    <td>{{spot.predicted.tide[0][2].height}} ft</td>
+                </tr>
+                <tr *ngIf="spot.predicted.tide[0].length > 3">
+                    <td class="type">{{spot.predicted.tide[0][3].type}}</td>
+                    <td>{{spot.predicted.tide[0][3].clock_time}}</td>
+                    <td>{{spot.predicted.tide[0][3].height}} ft</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

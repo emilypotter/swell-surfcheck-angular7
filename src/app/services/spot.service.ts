@@ -46,7 +46,7 @@ export class SpotService {
     return this.http.get<Spot[]>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots/region?id=${this.selectedRegionId}`);
   }
 
-  // public getSpotByIdLambda(): Observable<any> {
-  //   return this.http.get<any>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots/{id}`)
-  // }
+  public getSpotByIdLambda(id: string): Observable<Spot[]> {
+    return this.http.get<Spot[]>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots/spot?id=${id}`);
+  }
 }

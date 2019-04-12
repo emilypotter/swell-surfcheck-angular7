@@ -18,10 +18,14 @@ import { SpotListComponent } from './components/spot-list/spot-list.component';
 import { SpotService } from './services/spot.service';
 import { NgxLoadingModule } from 'ngx-loading';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SpotDetailComponent } from './components/spot-detail/spot-detail.component';
+import { CurrentConditionsComponent } from './components/current-conditions/current-conditions.component';
+import { ForecastComponent } from './components/forecast/forecast.component';
+import { WeatherService } from './services/weather.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
-    NavbarComponent, LoginComponent, CallbackComponent, SpotListComponent],
+    NavbarComponent, LoginComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent],
   imports: [
     CommonModule,
     NgtUniversalModule,
@@ -34,6 +38,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     NgxLoadingModule.forRoot({}),
     InfiniteScrollModule
   ],
-  providers: [Auth0LockService, SpotService]
+  providers: [Auth0LockService, SpotService, WeatherService]
 })
 export class AppModule { }
