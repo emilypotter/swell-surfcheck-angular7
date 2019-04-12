@@ -22,6 +22,12 @@ import { SpotDetailComponent } from './components/spot-detail/spot-detail.compon
 import { CurrentConditionsComponent } from './components/current-conditions/current-conditions.component';
 import { ForecastComponent } from './components/forecast/forecast.component';
 import { WeatherService } from './services/weather.service';
+import { VgCoreModule } from 'videogular2/core';
+import { VgControlsModule } from 'videogular2/controls';
+import { VgOverlayPlayModule } from 'videogular2/overlay-play';
+import { VgBufferingModule } from 'videogular2/buffering';
+import { VgStreamingModule } from 'videogular2/streaming';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
@@ -36,7 +42,13 @@ import { WeatherService } from './services/weather.service';
     FontAwesomeModule,
     FormsModule,
     NgxLoadingModule.forRoot({}),
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
+    VgStreamingModule,
+    CarouselModule
   ],
   providers: [Auth0LockService, SpotService, WeatherService]
 })

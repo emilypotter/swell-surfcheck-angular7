@@ -33,7 +33,6 @@ export class ForecastComponent implements OnInit {
 
   private getWeatherForecast(): void {
     this.weatherService.getWeatherForecast().subscribe((data: WeatherForecast) => {
-      this.weatherForecast.push(data.list[0]);
       this.weatherForecast.push(data.list[8]);
       this.weatherForecast.push(data.list[16]);
       this.weatherForecast.push(data.list[24]);

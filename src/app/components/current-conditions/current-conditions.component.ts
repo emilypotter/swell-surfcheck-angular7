@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrentWeather } from '../../model/currentWeatherModel';
 import { Forecast, Wave } from '../../model/forecastModel';
@@ -14,7 +14,6 @@ import { WeatherService } from '../../services/weather.service';
 export class CurrentConditionsComponent implements OnInit {
 
   constructor(public spotService: SpotService, private route: ActivatedRoute, private weatherService: WeatherService) { }
-
   public conditions: Conditions;
   public spot: SurflineSpot;
   public forecast: Wave[];
@@ -25,7 +24,6 @@ export class CurrentConditionsComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.spotService.getSpotByIdLambda(params.id).subscribe(spot => {
         this.spotService.selectedSpot = spot[0];
-        console.log(this.spotService.selectedSpot);
         this.weatherService.selectedSpot = spot[0];
         this.getConditions();
         this.getSpotFromSurfline();

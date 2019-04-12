@@ -45,7 +45,7 @@ export class SurflineSpot {
 }
 
 export class Camera {
-    cam_image: string;
+    m3u8: string;
 }
 
 export class Predicted {

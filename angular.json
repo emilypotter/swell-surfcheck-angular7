@@ -30,9 +30,12 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/weathericons/css/weather-icons.min.css",
-              "node_modules/weathericons/css/weather-icons-wind.min.css"
+              "node_modules/weathericons/css/weather-icons-wind.min.css",
+              "node_modules/videogular2/fonts/videogular.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/hls.js/dist/hls.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
