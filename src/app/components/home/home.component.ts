@@ -19,9 +19,8 @@ export class HomeComponent implements OnInit {
 
   public getRegionsForDropdown(): void {
     this.spotService.getRegionsLambda().subscribe((res: RegionResponse) => { // TODO: error handling
-      this.regions = res.regions;
+      this.regions = JSON.parse(res.body);
       this.loading = false;
-      console.log("hit");
     });
   }
 }

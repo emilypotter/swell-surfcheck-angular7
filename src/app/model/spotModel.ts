@@ -9,7 +9,7 @@ export class Spot {
 }
 
 export class RegionResponse {
-    regions: Region[];
+    body: string;
     status: string;
 }
 
