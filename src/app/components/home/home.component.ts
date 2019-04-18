@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
     this.spotService.getRegionsLambda().subscribe((res: RegionResponse) => { // TODO: error handling
       this.regions = res.regions;
       this.loading = false;
+      console.log("hit");
     });
   }
 }

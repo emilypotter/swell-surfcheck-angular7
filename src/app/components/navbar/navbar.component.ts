@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth0LockService } from '../../services/auth0-lock.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +7,7 @@ import { Auth0LockService } from '../../services/auth0-lock.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public auth0LockService: Auth0LockService) { }
+  constructor() { }
 
   ngOnInit() {
   }

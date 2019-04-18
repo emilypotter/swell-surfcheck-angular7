@@ -9,9 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
-import { Auth0LockService } from './services/auth0-lock.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { FormsModule } from '@angular/forms';
 import { SpotListComponent } from './components/spot-list/spot-list.component';
@@ -33,7 +31,7 @@ import { AppBrowserModule } from './app.browser.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
-    NavbarComponent, LoginComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent],
+    NavbarComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent],
   imports: [
     CommonModule,
     NgtUniversalModule,
@@ -61,6 +59,6 @@ import { AppBrowserModule } from './app.browser.module';
     BrowserAnimationsModule
 
   ],
-  providers: [Auth0LockService, SpotService, WeatherService]
+  providers: [SpotService, WeatherService]
 })
 export class AppModule { }
