@@ -2,8 +2,7 @@
   "universal": {
     "project": "swell-surfcheck",
     "skipInstall": false,
-    "directory": ".",
-    "http": true
+    "directory": "."
   },
   "serverless": {
     "project": "swell-surfcheck",

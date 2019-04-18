@@ -29,17 +29,18 @@ import { VgBufferingModule } from 'videogular2/buffering';
 import { VgStreamingModule } from 'videogular2/streaming';
 import { CarouselModule } from 'primeng/carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppBrowserModule } from './app.browser.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
     NavbarComponent, LoginComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent],
-  imports:[
- CommonModule,
-NgtUniversalModule,
- 
- TransferHttpCacheModule,
-HttpClientModule,
- 
+  imports: [
+    CommonModule,
+    NgtUniversalModule,
+
+    TransferHttpCacheModule,
+    HttpClientModule,
+
     CommonModule,
     NgtUniversalModule,
     TransferHttpCacheModule,
@@ -56,10 +57,10 @@ HttpClientModule,
     VgBufferingModule,
     VgStreamingModule,
     CarouselModule,
-    
+
     BrowserAnimationsModule
 
   ],
-  providers: [Auth0LockService, SpotService, WeatherService],
+  providers: [Auth0LockService, SpotService, WeatherService]
 })
 export class AppModule { }
