@@ -1,3 +1,36 @@
 .container {
     margin-top: 15px;
   }
+
+ .forecast-box {
+//   background-clip: content-box; // maybe change to padding-box
+//   height: 170px;
+ }
+
+.surf {
+  font-size: 40px;
+  text-align: center;
+}
+
+.day {
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #1B3950;
+}
+
+.wind {
+  font-size: 30px;
+}
+
+.weather {
+  font-size: 22px;
+}
+
+.container {
+  color: #ffffff;
+}
+
+#surf-forecast {
+  color: #000000;
+}
