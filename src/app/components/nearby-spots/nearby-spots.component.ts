@@ -3,15 +3,6 @@ import { SpotService } from 'src/app/services/spot.service';
 import { SurflineSpot, } from '../../model/spotModel';
 import { } from 'googlemaps';
 
-// declare const google: any;
-// let map: any;
-// let infowindow: any;
-// const options = {
-//   enableHighAccuracy: true,
-//   timeout: 5000,
-//   maximumAge: 0
-// };
-
 @Component({
   selector: 'app-nearby-spots',
   templateUrl: './nearby-spots.component.html',
@@ -19,9 +10,10 @@ import { } from 'googlemaps';
 })
 export class NearbySpotsComponent implements OnInit {
   @Input() spot: SurflineSpot;
-  @ViewChild('map') mapElement: any;
+  @ViewChild('map') mapElement: ElementRef;
   map: google.maps.Map;
   infowindow = new google.maps.InfoWindow();
+  public nearbyPlaces = [];
 
   constructor(private spotService: SpotService) { }
 
@@ -40,14 +32,16 @@ export class NearbySpotsComponent implements OnInit {
     const service = new google.maps.places.PlacesService(this.map);
     service.nearbySearch({
       location: { lat: latitude, lng: longitude },
-      radius: 150,
-      type: 'store',
+      radius: 1000,
+      // type: 'store',
       keyword: 'surf'
     }, (results, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-          console.log(results[i]);
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < results.length; i++) {
+          this.nearbyPlaces.push(results[i]);
         }
+        console.log(this.nearbyPlaces);
       }
     });
   }
