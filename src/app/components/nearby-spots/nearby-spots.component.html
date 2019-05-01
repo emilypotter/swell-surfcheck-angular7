@@ -1,3 +1,29 @@
-<p>
-  nearby-spots works!
-</p>
+<div class="container">
+  <div id="surf-forecast">
+    <h1>
+      Nearby
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <!-- <p-gmap #map [style]="{'width':'100%','height':'320px', 'margin-bottom': '1em'}" [options]="options"
+        [overlays]="overlays" (onMapClick)="handleMapClick($event)" (onOverlayClick)="handleOverlayClick($event)">
+      </p-gmap> -->
+      <div #map style="width:100%;height:400px"></div>
+    </div>
+    <!-- <div class="col-lg-6">
+        <div class="col-md-12" *ngFor="let place of places">
+            <div class="row property-card" [routerLink]="['/spot']" [queryParams]="{ id: spot._id }">
+              <div class="col-lg-4 col-sm-12 property-image-container">
+                <img src="{{spot.image}}" alt="surf pic">
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <div class="property-card-details">
+                  <h5>{{place.name}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div> -->
+  </div>
+</div>

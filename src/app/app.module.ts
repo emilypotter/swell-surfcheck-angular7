@@ -27,6 +27,7 @@ import { SpotListComponent } from './components/spot-list/spot-list.component';
 import { SpotService } from './services/spot.service';
 import { WeatherService } from './services/weather.service';
 import { NearbySpotsComponent } from './components/nearby-spots/nearby-spots.component';
+import { GMapModule } from 'primeng/gmap';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
@@ -54,6 +55,7 @@ import { NearbySpotsComponent } from './components/nearby-spots/nearby-spots.com
     VgBufferingModule,
     VgStreamingModule,
     CarouselModule,
+    GMapModule,
 
     BrowserAnimationsModule
 

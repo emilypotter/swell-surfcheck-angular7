@@ -22,6 +22,7 @@ export class SpotListComponent implements OnInit {
     // get regionId from url in case page is refreshed
     this.route.queryParams.subscribe(params => {
       this.spotService.selectedRegionId = params.id;
+      localStorage.setItem('selectedRegionId', params.id);
     });
 
     this.getSpotsForRegion();
@@ -30,6 +31,7 @@ export class SpotListComponent implements OnInit {
   public getSpotsForRegion(): void {
     this.spotService.getSpotsForRegionLambda().subscribe((res: Spot[]) => { // TODO: error handling
       this.fullArray = res;
+      console.log(this.fullArray);
       if (this.fullArray.length > 5) {
         this.addItems(0, this.sum);
       } else {

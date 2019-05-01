@@ -42,6 +42,16 @@ export class SurflineSpot {
     camera: Camera;
     predicted: Predicted;
     current: Current;
+    location: Location;
+}
+
+export class Location {
+    spot: LatLong;
+}
+
+export class LatLong {
+    lat: number;
+    lon: number;
 }
 
 export class Camera {

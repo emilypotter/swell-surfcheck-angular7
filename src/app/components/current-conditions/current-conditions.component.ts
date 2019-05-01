@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrentWeather } from '../../model/currentWeatherModel';
 import { Forecast, Wave } from '../../model/forecastModel';
@@ -15,10 +15,10 @@ export class CurrentConditionsComponent implements OnInit {
 
   constructor(public spotService: SpotService, private route: ActivatedRoute, private weatherService: WeatherService) { }
   public conditions: Conditions;
-  public spot: SurflineSpot;
   public forecast: Wave[];
   public flat = false;
   public currentWeather: CurrentWeather;
+  @Input() spot: SurflineSpot;
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -26,8 +26,6 @@ export class CurrentConditionsComponent implements OnInit {
         this.spotService.selectedSpot = spot[0];
         this.weatherService.selectedSpot = spot[0];
         this.getConditions();
-        this.getSpotFromSurfline();
-        this.getForecastFromSurfline();
         this.getCurrentWeather();
       });
     });
@@ -39,18 +37,6 @@ export class CurrentConditionsComponent implements OnInit {
       if (data.data.conditions[0].am.minHeight === 0 && data.data.conditions[0].am.maxHeight === 0) {
         this.flat = true;
       }
-    });
-  }
-
-  private getSpotFromSurfline(): void {
-    this.spotService.getSpotFromSurfline().subscribe((data: SurflineSpot[]) => {
-      this.spot = data[0]; // data comes back as an array with one element so pick that one a assign it to spot
-    });
-  }
-
-  public getForecastFromSurfline(): void {
-    this.spotService.getForecastFromSurfline().subscribe((data: Forecast) => {
-      this.forecast = data.data.wave;
     });
   }
 
