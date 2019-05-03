@@ -92,7 +92,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/swell-surfcheck/production/1555597935435-2019-04-18T14:32:15.435Z/swell-surfcheck.zip"
+          "S3Key": "serverless/swell-surfcheck/production/1556897276263-2019-05-03T15:27:56.263Z/swell-surfcheck.zip"
         },
         "FunctionName": "swell-surfcheck-production-api",
         "Handler": "lambda.universal",
@@ -111,14 +111,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "ApiLambdaVersionSVHt16ndqDeiYyTW3NdZyP5FvE9uXe38wXCwNqoTAY": {
+    "ApiLambdaVersionfSnfOjgCYcvPuJMI5V4YDnmi07ut5MDsZj91QSRmD8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "3RP6zNLhivbNXI7Ff6GFDWGGoxh/kq4NKwzcuKlQfQA="
+        "CodeSha256": "KLx6YFmp1KCoQJgo0hsGAkhy0I+pawvR/HNGMYPwfp4="
       }
     },
     "ApiGatewayRestApi": {
@@ -228,7 +228,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1555597935479": {
+    "ApiGatewayDeployment1556897276308": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -284,7 +284,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionSVHt16ndqDeiYyTW3NdZyP5FvE9uXe38wXCwNqoTAY"
+        "Ref": "ApiLambdaVersionfSnfOjgCYcvPuJMI5V4YDnmi07ut5MDsZj91QSRmD8"
       }
     },
     "ServiceEndpoint": {

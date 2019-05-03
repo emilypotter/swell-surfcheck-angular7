@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotService } from '../../services/spot.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { SurflineSpot } from 'src/app/model/spotModel';
+import { SurflineSpot } from '../../model/spotModel';
 
 @Component({
   selector: 'app-spot-detail',

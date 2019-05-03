@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { SpotService } from 'src/app/services/spot.service';
+import { SpotService } from '../../services/spot.service';
 import { SurflineSpot, } from '../../model/spotModel';
 import { } from 'googlemaps';
 
@@ -12,7 +12,6 @@ export class NearbySpotsComponent implements OnInit {
   @Input() spot: SurflineSpot;
   @ViewChild('map') mapElement: ElementRef;
   map: google.maps.Map;
-  infowindow = new google.maps.InfoWindow();
   public nearbyPlaces = [];
 
   constructor(private spotService: SpotService) { }
@@ -40,8 +39,8 @@ export class NearbySpotsComponent implements OnInit {
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < results.length; i++) {
           this.nearbyPlaces.push(results[i]);
+          this.addMarker(results[i].geometry.location.lat(), results[i].geometry.location.lng(), results[i].name);
         }
-        console.log(this.nearbyPlaces);
       }
     });
   }
@@ -53,4 +52,8 @@ export class NearbySpotsComponent implements OnInit {
       title: markerTitle
     });
   }
+
+  // public addMarkerOnMouseover(event: Event, lat: number, lon: number, title: string) {
+  //   this.addMarker(lat, lon, title);
+  // }
 }

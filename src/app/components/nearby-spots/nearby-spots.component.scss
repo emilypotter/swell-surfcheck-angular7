@@ -11,6 +11,7 @@
     overflow: hidden;
     width: 100%;
     z-index: 1;
+    height: 50px;
 
     &:not(.not-verified) {
       cursor: pointer;
@@ -23,7 +24,8 @@
   }
 
   // .property-card-details {
-  //   margin: 18px 16px 0 16px;
+  //   text-overflow: ellipsis;
+  //   overflow: hidden;
   // }
 
   .property-card-tranaction-type {
@@ -39,9 +41,12 @@
     margin-bottom: 0em;
   }
 
-  // h5 {
-  //   margin: 0em;
-  // }
+  h5 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 20px;
+  }
 
   img {
     height: 200px;
