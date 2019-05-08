@@ -1,4 +1,3 @@
-
 export class Spot {
     _id: string;
     spotName: string;
@@ -43,6 +42,18 @@ export class SurflineSpot {
     predicted: Predicted;
     current: Current;
     location: Location;
+    travel: Travel;
+}
+
+export class Travel {
+    best: Best;
+}
+
+export class Best {
+    size: string;
+    swell: string;
+    wind: string;
+    tide: string;
 }
 
 export class Location {

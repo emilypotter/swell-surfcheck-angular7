@@ -28,10 +28,11 @@ import { SpotService } from './services/spot.service';
 import { WeatherService } from './services/weather.service';
 import { NearbySpotsComponent } from './components/nearby-spots/nearby-spots.component';
 import { GMapModule } from 'primeng/gmap';
+import { BestConditionsComponent } from './components/best-conditions/best-conditions.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
-    NavbarComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent, NearbySpotsComponent],
+    NavbarComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent, NearbySpotsComponent, BestConditionsComponent],
   imports: [
     CommonModule,
     NgtUniversalModule,
