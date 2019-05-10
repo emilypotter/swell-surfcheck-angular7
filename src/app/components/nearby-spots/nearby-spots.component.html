@@ -1,5 +1,5 @@
 <div class="container">
-  <div id="surf-forecast">
+  <div>
     <h1>
       Nearby
     </h1>
@@ -13,8 +13,85 @@
         <div class="property-card col-lg-6" *ngFor="let place of nearbyPlaces">
           <div class="col-lg-12">
             <div class="property-card-details">
-              <h5>{{place.name}}</h5>
+              <div class="row">
+                <div class="col-lg-10">
+                  <div class="nearby">
+                    {{place.name}}
+                  </div>
+                </div>
+                <div (click)="openInfoWindow(place.name)" class="col-lg-2 marker">
+                  <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-7">
+      <h1>
+        Gallery
+      </h1>
+    </div>
+    <div class="col-lg-5" style="margin-right: 0px; padding-left: 0px;">
+      <h1>
+        Best Conditions
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-7">
+      <ngx-gallery *ngIf="photosLoaded" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+    </div>
+    <div class="col-lg-5">
+      <div class="row">
+        <div class="col-lg-6 day">
+          <div class="best-title">
+            Size
+          </div>
+          <div class="icon">
+            <fa-icon [icon]="faRulerVertical"></fa-icon>
+          </div>
+          <div class="best">
+            {{spot.travel.best.size}}
+          </div>
+        </div>
+        <div class="col-lg-6 day">
+          <div class="best-title">
+            Swell
+          </div>
+          <div class="icon">
+            <fa-icon [icon]="faWater"></fa-icon>
+          </div>
+          <div class="best">
+            {{spot.travel.best.swell}}
+          </div>
+        </div>
+        <div class="col-lg-6 day">
+          <div class="best-title">
+            Wind
+          </div>
+          <div class="icon">
+            <fa-icon [icon]="faWind"></fa-icon>
+          </div>
+          <div class="best">
+            {{spot.travel.best.wind}}
+          </div>
+        </div>
+        <div class="col-lg-6 day">
+          <div class="best-title">
+            Tide
+          </div>
+          <div class="icon">
+            <fa-icon [icon]="faArrowsAltV"></fa-icon>
+          </div>
+          <div class="best">
+            {{spot.travel.best.tide}}
           </div>
         </div>
       </div>

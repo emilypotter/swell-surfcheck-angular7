@@ -5,6 +5,7 @@ export class Spot {
     surflineLongId: string;
     surflineRegionId: string;
     imageUrl: string;
+    googleId: string;
 }
 
 export class RegionResponse {

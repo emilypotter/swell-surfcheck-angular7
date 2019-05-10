@@ -27,12 +27,11 @@ import { SpotListComponent } from './components/spot-list/spot-list.component';
 import { SpotService } from './services/spot.service';
 import { WeatherService } from './services/weather.service';
 import { NearbySpotsComponent } from './components/nearby-spots/nearby-spots.component';
-import { GMapModule } from 'primeng/gmap';
-import { BestConditionsComponent } from './components/best-conditions/best-conditions.component';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
-    NavbarComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent, NearbySpotsComponent, BestConditionsComponent],
+    NavbarComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent, NearbySpotsComponent],
   imports: [
     CommonModule,
     NgtUniversalModule,
@@ -56,8 +55,7 @@ import { BestConditionsComponent } from './components/best-conditions/best-condi
     VgBufferingModule,
     VgStreamingModule,
     CarouselModule,
-    GMapModule,
-
+    NgxGalleryModule,
     BrowserAnimationsModule
 
   ],
