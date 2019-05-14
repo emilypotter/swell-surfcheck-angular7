@@ -10,7 +10,7 @@ import { faWater } from '@fortawesome/free-solid-svg-icons';
 import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
-const infowindow = new google.maps.InfoWindow({});
+
 
 @Component({
   selector: 'app-nearby-spots',
@@ -31,6 +31,7 @@ export class NearbySpotsComponent implements OnInit {
   public nearbyPlaces = [];
   public photosLoaded = false;
   private markers = [];
+  private infowindow = new google.maps.InfoWindow({});
 
   constructor(private spotService: SpotService) { }
 
@@ -81,8 +82,10 @@ export class NearbySpotsComponent implements OnInit {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < results.length; i++) {
-          this.nearbyPlaces.push(results[i]);
-          this.addMarker(results[i].geometry.location.lat(), results[i].geometry.location.lng(), results[i].name);
+          if (this.nearbyPlaces.length < 12) {
+            this.nearbyPlaces.push(results[i]);
+            this.addMarker(results[i].geometry.location.lat(), results[i].geometry.location.lng(), results[i].name);
+          }
         }
       }
     });
@@ -120,8 +123,8 @@ export class NearbySpotsComponent implements OnInit {
   public openInfoWindow(title: string): void {
     this.markers.forEach(markerObj => {
       if (title === markerObj.name) {
-        infowindow.open(this.map, markerObj.marker);
-        infowindow.setContent(title);
+        this.infowindow.open(this.map, markerObj.marker);
+        this.infowindow.setContent(title);
       }
     });
   }
