@@ -15,7 +15,7 @@
           <div class="col-lg-12">
             <div class="property-card-details">
               <div class="row">
-                <div class="col-lg-10">
+                <div (click)="selectedPlace=place; myModal.open()" class="col-lg-10">
                   <div class="nearby">
                     {{place.name}}
                   </div>
@@ -98,4 +98,27 @@
       </div>
     </div>
   </div>
+  <ngx-smart-modal (onOpen)="detailsSearch()" [customClass]="'nsm-centered'" #myModal identifier="myModal">
+    <h1 *ngIf="selectedPlace">{{selectedPlace.name}}</h1>
+    <div>
+      <ngx-gallery *ngIf="modalPhotosLoaded" [options]="galleryOptions" [images]="modalGalleryImages">
+      </ngx-gallery>
+    </div>
+    <div *ngIf="placeDetails" class="row">
+      <div class="col-lg-6" *ngIf="placeDetails">
+        <div>
+          {{placeDetails.formatted_address}}
+        </div>
+        <div>
+          {{placeDetails.formatted_phone_number}}
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div *ngFor="let day of placeDetails.opening_hours.weekday_text">
+          {{day}}
+        </div>
+      </div>
+    </div>
+
+  </ngx-smart-modal>
 </div>

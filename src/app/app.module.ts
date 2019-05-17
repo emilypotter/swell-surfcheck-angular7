@@ -28,6 +28,7 @@ import { SpotService } from './services/spot.service';
 import { WeatherService } from './services/weather.service';
 import { NearbySpotsComponent } from './components/nearby-spots/nearby-spots.component';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
@@ -56,7 +57,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
     VgStreamingModule,
     CarouselModule,
     NgxGalleryModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxSmartModalModule.forRoot()
 
   ],
   providers: [SpotService, WeatherService]

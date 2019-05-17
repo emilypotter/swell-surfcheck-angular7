@@ -9,7 +9,7 @@ import { faWind } from '@fortawesome/free-solid-svg-icons';
 import { faWater } from '@fortawesome/free-solid-svg-icons';
 import { faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 
 @Component({
@@ -25,13 +25,18 @@ export class NearbySpotsComponent implements OnInit {
   faArrowsAltV = faArrowsAltV;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  modalGalleryOptions: NgxGalleryOptions[];
+  modalGalleryImages: NgxGalleryImage[];
   @Input() spot: SurflineSpot;
   @ViewChild('map') mapElement: ElementRef;
   map: google.maps.Map;
   public nearbyPlaces = [];
   public photosLoaded = false;
+  public modalPhotosLoaded = false;
   private markers = [];
   private infowindow = new google.maps.InfoWindow({});
+  public selectedPlace: any;
+  public placeDetails: any;
 
   constructor(private spotService: SpotService) { }
 
@@ -60,6 +65,7 @@ export class NearbySpotsComponent implements OnInit {
         preview: false
       }
     ];
+    this.modalGalleryImages = [];
     const mapProperties = {
       center: new google.maps.LatLng(this.spot.location.spot.lat, this.spot.location.spot.lon),
       zoom: 12,
@@ -104,6 +110,28 @@ export class NearbySpotsComponent implements OnInit {
           });
           this.photosLoaded = true;
         });
+      }
+    });
+  }
+
+  public detailsSearch(): void {
+    this.modalGalleryImages = [];
+    this.modalPhotosLoaded = false;
+    const service = new google.maps.places.PlacesService(this.map);
+    service.getDetails({
+      placeId: this.selectedPlace.place_id
+    }, (results, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        this.placeDetails = results;
+        console.log(this.placeDetails);
+        results.photos.forEach(photo => {
+          this.modalGalleryImages.push({
+            small: photo.getUrl({ maxWidth: 100, maxHeight: 100 }),
+            medium: photo.getUrl({ maxWidth: 500, maxHeight: 500 }),
+            big: photo.getUrl({ maxWidth: 1000, maxHeight: 1000 })
+          });
+        });
+        this.modalPhotosLoaded = true;
       }
     });
   }

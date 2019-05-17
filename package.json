@@ -55,6 +55,7 @@
     "ngx-gallery": "^5.10.0",
     "ngx-infinite-scroll": "^7.1.0",
     "ngx-loading": "^3.0.1",
+    "ngx-smart-modal": "^7.1.1",
     "popper": "^1.0.1",
     "primeicons": "^1.0.0",
     "primeng": "^7.1.0",
