@@ -137,11 +137,17 @@ export class NearbySpotsComponent implements OnInit {
   }
 
   public addMarker(latitude: number, longitude: number, markerTitle: string) {
+    // create marker
     const marker = new google.maps.Marker({
       position: { lat: latitude, lng: longitude },
       map: this.map,
       title: markerTitle
     });
+    // add click listener to each marker
+    marker.addListener('click', () => {
+      this.openInfoWindow(markerTitle);
+    });
+    // push each marker to array
     this.markers.push({
       name: markerTitle,
       marker

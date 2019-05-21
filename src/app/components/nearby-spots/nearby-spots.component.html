@@ -21,7 +21,7 @@
                   </div>
                 </div>
                 <div (click)="openInfoWindow(place.name)" class="col-lg-2 marker">
-                  <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+                  <fa-icon tooltip="Click to show on map" hide-delay="0" [icon]="faMapMarkerAlt"></fa-icon>
                 </div>
               </div>
             </div>
@@ -107,16 +107,21 @@
     <div *ngIf="placeDetails" class="row">
       <div class="col-lg-6" *ngIf="placeDetails">
         <div>
-          <b>Address:</b> {{placeDetails.formatted_address}}
+          <b>Address: </b>{{placeDetails.formatted_address}}
         </div>
         <div>
-          <b>Phone:</b> {{placeDetails.formatted_phone_number}}
+          <b>Phone: </b>{{placeDetails.formatted_phone_number}}
         </div>
+        <br>
         <div>
-          Rating:
-          <star-rating style="display: inline-flex;" [starType]="'svg'" [rating]="placeDetails.rating"
-            [labelText]="placeDetails.user_ratings_total" labelPosition="right" staticColor="ok" [readOnly]="true">
+          <b>Rating: </b>
+          <star-rating *ngIf="placeDetails.rating > 0" style="display: inline-flex;" [starType]="'svg'"
+            [rating]="placeDetails.rating" [labelText]="placeDetails.user_ratings_total" labelPosition="right"
+            staticColor="ok" [readOnly]="true">
           </star-rating>
+          <span *ngIf="placeDetails.rating == 0 || !placeDetails.rating">
+            <i>No rating yet</i>
+          </span>
         </div>
         <hr>
       </div>
@@ -129,7 +134,7 @@
         </div>
         <hr>
       </div>
-      <div class="reviews">
+      <div *ngIf="placeDetails.reviews" class="reviews">
         <h4>
           Reviews
         </h4>

@@ -31,6 +31,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { StarRatingModule } from 'angular-star-rating';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
@@ -62,7 +63,8 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
     BrowserAnimationsModule,
     NgxSmartModalModule.forRoot(),
     StarRatingModule.forRoot(),
-    ScrollPanelModule
+    ScrollPanelModule,
+    TooltipModule
   ],
   providers: [SpotService, WeatherService]
 })
