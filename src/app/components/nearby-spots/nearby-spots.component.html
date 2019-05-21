@@ -107,18 +107,50 @@
     <div *ngIf="placeDetails" class="row">
       <div class="col-lg-6" *ngIf="placeDetails">
         <div>
-          {{placeDetails.formatted_address}}
+          <b>Address:</b> {{placeDetails.formatted_address}}
         </div>
         <div>
-          {{placeDetails.formatted_phone_number}}
+          <b>Phone:</b> {{placeDetails.formatted_phone_number}}
         </div>
+        <div>
+          Rating:
+          <star-rating style="display: inline-flex;" [starType]="'svg'" [rating]="placeDetails.rating"
+            [labelText]="placeDetails.user_ratings_total" labelPosition="right" staticColor="ok" [readOnly]="true">
+          </star-rating>
+        </div>
+        <hr>
       </div>
       <div class="col-lg-6">
+        <div>
+          <b>Opening times:</b>
+        </div>
         <div *ngFor="let day of placeDetails.opening_hours.weekday_text">
           {{day}}
         </div>
+        <hr>
+      </div>
+      <div class="reviews">
+        <h4>
+          Reviews
+        </h4>
+      </div>
+      <div class="reviews">
+        <div *ngFor="let review of placeDetails.reviews">
+          <p *ngIf="review.text">
+            <span style="font-weight: bold">{{review.author_name}} </span>
+            <span>{{review.relative_time_description}}</span>
+            <span>
+              <star-rating style="display: inline-flex;" [starType]="'svg'" [rating]="review.rating" staticColor="ok"
+                [readOnly]="true">
+              </star-rating>
+            </span>
+          </p>
+          <p *ngIf="review.text">
+            {{review.text}}
+          </p>
+          <hr>
+        </div>
       </div>
     </div>
-
   </ngx-smart-modal>
 </div>

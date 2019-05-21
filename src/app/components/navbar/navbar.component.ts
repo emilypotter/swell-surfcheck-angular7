@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   constructor() { }
-  public image = "../../../assets/Img/swelllogojustpic.PNG";
+  public image = "../../../assets/images/swelllogojustpic.PNG";
 
   ngOnInit() {
   }

@@ -29,6 +29,8 @@ import { WeatherService } from './services/weather.service';
 import { NearbySpotsComponent } from './components/nearby-spots/nearby-spots.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { StarRatingModule } from 'angular-star-rating';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
@@ -58,8 +60,9 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
     CarouselModule,
     NgxGalleryModule,
     BrowserAnimationsModule,
-    NgxSmartModalModule.forRoot()
-
+    NgxSmartModalModule.forRoot(),
+    StarRatingModule.forRoot(),
+    ScrollPanelModule
   ],
   providers: [SpotService, WeatherService]
 })
