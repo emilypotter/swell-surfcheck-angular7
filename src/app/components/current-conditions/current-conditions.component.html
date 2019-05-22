@@ -1,4 +1,4 @@
-<div class="container" *ngIf="spot && conditions && currentWeather">
+<div class="container" *ngIf="spot && conditions">
     <h1>
         {{spotService.selectedSpot.spotName}}
     </h1>
@@ -23,7 +23,7 @@
             <span *ngIf="!flat" id="human-relation">
                 {{conditions.am.humanRelation}}
             </span>
-            <div id="weather">
+            <div *ngIf="currentWeather" id="weather">
                 <span>
                     <!-- convert from m/s to mph -->
                     {{currentWeather.wind.speed * 2.237 | number:'1.0-0'}} mph
