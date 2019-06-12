@@ -6,8 +6,8 @@
         <div id="image" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <!-- <img src={{spot.camera.cam_image}} alt="image spot"> -->
             <vg-player>
-                <video #myMedia [vgHls]="spot.camera.m3u8" (onGetBitrates)="hlsBitrates = $event" id="my-video"
-                    type="video/mp4" controls>
+                <video #myMedia autoplay="true" [vgHls]="spot.camera.m3u8" (onGetBitrates)="hlsBitrates = $event"
+                    id="my-video" type="video/mp4" controls>
                 </video>
             </vg-player>
         </div>

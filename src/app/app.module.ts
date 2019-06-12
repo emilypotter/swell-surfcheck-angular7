@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgtUniversalModule } from "@ng-toolkit/universal";
@@ -32,6 +32,8 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { StarRatingModule } from 'angular-star-rating';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { MatAutocompleteModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
@@ -64,7 +66,13 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     NgxSmartModalModule.forRoot(),
     StarRatingModule.forRoot(),
     ScrollPanelModule,
-    TooltipModule
+    TooltipModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatSelectModule
+
   ],
   providers: [SpotService, WeatherService]
 })

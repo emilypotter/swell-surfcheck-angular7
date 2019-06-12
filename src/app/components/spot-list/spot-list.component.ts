@@ -23,15 +23,14 @@ export class SpotListComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.spotService.selectedRegionId = params.id;
       localStorage.setItem('selectedRegionId', params.id);
+      this.getSpotsForRegion();
     });
 
-    this.getSpotsForRegion();
   }
 
   public getSpotsForRegion(): void {
-    this.spotService.getSpotsForRegionLambda().subscribe((res: Spot[]) => { // TODO: error handling
+    this.spotService.getSpotsForRegionLambda(this.spotService.selectedRegionId).subscribe((res: Spot[]) => { // TODO: error handling
       this.fullArray = res;
-      console.log(this.fullArray);
       if (this.fullArray.length > 5) {
         this.addItems(0, this.sum);
       } else {
@@ -58,6 +57,5 @@ export class SpotListComponent implements OnInit {
 
   public selectSpot(spot: Spot) {
     this.spotService.selectedSpot = spot;
-    console.log(this.spotService.selectedSpot);
   }
 }

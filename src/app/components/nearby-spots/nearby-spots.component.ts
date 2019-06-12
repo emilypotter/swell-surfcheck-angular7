@@ -123,15 +123,17 @@ export class NearbySpotsComponent implements OnInit {
     }, (results, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         this.placeDetails = results;
-        console.log(this.placeDetails);
-        results.photos.forEach(photo => {
-          this.modalGalleryImages.push({
-            small: photo.getUrl({ maxWidth: 100, maxHeight: 100 }),
-            medium: photo.getUrl({ maxWidth: 500, maxHeight: 500 }),
-            big: photo.getUrl({ maxWidth: 1000, maxHeight: 1000 })
+        if (results.photos) {
+          results.photos.forEach(photo => {
+            this.modalGalleryImages.push({
+              small: photo.getUrl({ maxWidth: 100, maxHeight: 100 }),
+              medium: photo.getUrl({ maxWidth: 500, maxHeight: 500 }),
+              big: photo.getUrl({ maxWidth: 1000, maxHeight: 1000 })
+            });
           });
-        });
-        this.modalPhotosLoaded = true;
+          this.modalPhotosLoaded = true;
+        }
+
       }
     });
   }

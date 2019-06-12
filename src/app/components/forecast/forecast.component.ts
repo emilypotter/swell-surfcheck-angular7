@@ -37,14 +37,12 @@ export class ForecastComponent implements OnInit {
       this.weatherForecast.push(data.list[16]);
       this.weatherForecast.push(data.list[24]);
       this.weatherForecast.push(data.list[32]);
-      console.log(this.weatherForecast[0].wind.deg);
     });
   }
 
   private getSurfForecast(): void {
     this.spotService.getForecastFromSurfline().subscribe((data: Forecast) => {
       this.surfForecast = data;
-      console.log(this.surfForecast.data.wave[0].surf.min === this.surfForecast.data.wave[0].surf.max);
     });
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Spot, Region, SurflineSpotConditions, SurflineSpot, RegionResponse } from '../model/spotModel';
+import { HttpClient } from '@angular/common/http';
+import { Spot, SurflineSpotConditions, SurflineSpot, LambdaResponse, Region } from '../model/spotModel';
 import { Observable } from 'rxjs';
 import { Forecast } from '../model/forecastModel';
 
@@ -38,15 +38,23 @@ export class SpotService {
     return this.http.get<Forecast>('https://services.surfline.com/kbyg/spots/forecasts/wave?spotId=5942969ce98ad90013191e1c&days=5&intervalHours=24');
   }
 
-  public getRegionsLambda(): Observable<RegionResponse> {
-    return this.http.get<RegionResponse>('https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellregions');
+  public getRegionsLambda(): Observable<LambdaResponse> {
+    return this.http.get<LambdaResponse>('https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellregions');
   }
 
-  public getSpotsForRegionLambda(): Observable<Spot[]> {
-    return this.http.get<Spot[]>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots/region?id=${this.selectedRegionId}`);
+  public getSpotsForRegionLambda(regionId: string): Observable<Spot[]> {
+    return this.http.get<Spot[]>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots/region?id=${regionId}`);
   }
 
   public getSpotByIdLambda(id: string): Observable<Spot[]> {
     return this.http.get<Spot[]>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots/spot?id=${id}`);
+  }
+
+  public getSpotsLambda(): Observable<LambdaResponse> {
+    return this.http.get<LambdaResponse>("https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots");
+  }
+
+  public getSpotByNameLambda(name: string): Observable<LambdaResponse> {
+    return this.http.get<LambdaResponse>(`https://tetqc1kgx7.execute-api.eu-west-2.amazonaws.com/prod/swellspots/spotname?name=${name}`);
   }
 }

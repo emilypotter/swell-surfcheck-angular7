@@ -8,7 +8,7 @@ export class Spot {
     googleId: string;
 }
 
-export class RegionResponse {
+export class LambdaResponse {
     body: string;
     status: string;
 }
