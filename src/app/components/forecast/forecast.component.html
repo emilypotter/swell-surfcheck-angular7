@@ -18,10 +18,10 @@
                     *ngIf="(surfForecast.data.wave[i].surf.min | number:'1.0-0') === (surfForecast.data.wave[i].surf.max | number:'1.0-0')">
                     {{surfForecast.data.wave[i].surf.min | number:'1.0-0'}}ft
                 </div>
-                <div class="col-lg-12 surf"
+                <!-- <div class="col-lg-12 surf"
                     *ngIf="(surfForecast.data.wave[i].surf.max | number:'1.0-0') === (0 | number:'1.0-0')">
                     FLAT
-                </div>
+                </div> -->
             </div>
             <div class="row">
                 <div class="col-lg-12 wind">

@@ -34,10 +34,11 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { MatAutocompleteModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { SpotMapComponent } from './components/spot-map/spot-map.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
-    NavbarComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent, NearbySpotsComponent],
+    NavbarComponent, CallbackComponent, SpotListComponent, SpotDetailComponent, CurrentConditionsComponent, ForecastComponent, NearbySpotsComponent, SpotMapComponent],
   imports: [
     CommonModule,
     NgtUniversalModule,

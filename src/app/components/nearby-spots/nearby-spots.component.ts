@@ -77,7 +77,7 @@ export class NearbySpotsComponent implements OnInit {
     this.placeSearch();
   }
 
-  public nearbySearch(latitude: number, longitude: number) {
+  private nearbySearch(latitude: number, longitude: number) {
     const service = new google.maps.places.PlacesService(this.map);
     service.nearbySearch({
       location: { lat: latitude, lng: longitude },
@@ -114,7 +114,7 @@ export class NearbySpotsComponent implements OnInit {
     });
   }
 
-  public detailsSearch(): void {
+  private detailsSearch(): void {
     this.modalGalleryImages = [];
     this.modalPhotosLoaded = false;
     const service = new google.maps.places.PlacesService(this.map);
@@ -138,7 +138,7 @@ export class NearbySpotsComponent implements OnInit {
     });
   }
 
-  public addMarker(latitude: number, longitude: number, markerTitle: string) {
+  private addMarker(latitude: number, longitude: number, markerTitle: string) {
     // create marker
     const marker = new google.maps.Marker({
       position: { lat: latitude, lng: longitude },
@@ -156,7 +156,7 @@ export class NearbySpotsComponent implements OnInit {
     });
   }
 
-  public openInfoWindow(title: string): void {
+  private openInfoWindow(title: string): void {
     this.markers.forEach(markerObj => {
       if (title === markerObj.name) {
         this.infowindow.open(this.map, markerObj.marker);
@@ -164,8 +164,4 @@ export class NearbySpotsComponent implements OnInit {
       }
     });
   }
-
-  // public addMarkerOnMouseover(event: Event, lat: number, lon: number, title: string) {
-  //   this.addMarker(lat, lon, title);
-  // }
 }

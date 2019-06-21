@@ -22,7 +22,7 @@ export class SpotListComponent implements OnInit {
     // get regionId from url in case page is refreshed
     this.route.queryParams.subscribe(params => {
       this.spotService.selectedRegionId = params.id;
-      localStorage.setItem('selectedRegionId', params.id);
+      // localStorage.setItem('selectedRegionId', params.id);
       this.getSpotsForRegion();
     });
 
